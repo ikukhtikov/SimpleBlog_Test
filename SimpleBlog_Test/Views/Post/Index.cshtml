@@ -1,0 +1,21 @@
+﻿@using SimpleBlog_Test.Models.ViewModels;
+@model List<PostViewModel>;
+
+@if(Model.Count > 0)
+{
+    foreach(var post in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@post.Name</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">@post.Author</h6>
+                <p class="card-text">@Html.Raw(post.ShortDescription)</p>
+                <a href="#" class="btn btn-primary">Читать</a>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <h1>Посты не найдены.</h1>
+}

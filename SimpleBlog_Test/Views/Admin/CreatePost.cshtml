@@ -1,0 +1,35 @@
+﻿@using SimpleBlog_Test.Models.ViewModels;
+@model NewPostNewModel;
+
+<link href="~/lib/froala-editor/css/froala_editor.min.css" rel="stylesheet" />
+<form method="post" asp-controller="Admin" asp-action="CreatePost">
+    <div class="mb-3">
+        <label for="name" class="form-label">Название статьи</label>
+        <input type="text" class="form-control" id="name" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="author" class="form-label">Автор статьи</label>
+        <input type="text" class="form-control" id="author" asp-for="Author">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Текст статьи</label>
+        <textarea id="description" asp-for="Description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="shortDescription" class="form-label">Краткое описание статьи</label>
+        <textarea id="shortDescription" asp-for="ShortDescription"></textarea>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="isVisible" value="true" asp-for="IsVisiable">
+        <label class="form-check-label" for="isVisible">Опубликовать статью</label>
+    </div>
+    <div class="mb-3 form-check">
+        <button type="submit" class="btn btn-primary">Опубликовать</button>
+    </div>
+</form>
+
+<script src="~/lib/froala-editor/js/froala_editor.min.js"></script>
+<script>
+    var description = new FroalaEditor('#description');
+    var shortdescription = new FroalaEditor('#shortDescription');
+</script>
